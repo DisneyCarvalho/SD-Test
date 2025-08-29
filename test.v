@@ -1,12 +1,13 @@
 
-module ImageMemory (
+module testmem (
  
     input clk,         
     input wr_en,        
 
     input  [16:0] addr,    
     input  [7:0]  data_in, 
-    output [7:0]  data_out 
+	 
+    output  reg [7:0]  data_out 
 );
 
 
@@ -21,10 +22,14 @@ module ImageMemory (
         if (wr_en) begin
             mem[addr] <= data_in;
         end
+		  
+	  data_out = mem[addr];
+		
     end
+	 
 
 
    
-    assign data_out = mem[addr];
+    
 
 endmodule
